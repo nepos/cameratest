@@ -69,31 +69,22 @@ Camera::Camera(QWidget *parent) :
 
     //Camera devices:
 
-    qInfo() << "IN CONSTRUCTOR " << __LINE__;
-
     QActionGroup *videoDevicesGroup = new QActionGroup(this);
-    qInfo() << "IN CONSTRUCTOR " << __LINE__;
     videoDevicesGroup->setExclusive(true);
     foreach (const QCameraInfo &cameraInfo, QCameraInfo::availableCameras()) {
         QAction *videoDeviceAction = new QAction(cameraInfo.description(), videoDevicesGroup);
-        qInfo() << "IN CONSTRUCTOR " << __LINE__;
         videoDeviceAction->setCheckable(true);
-        qInfo() << "IN CONSTRUCTOR " << __LINE__;
         videoDeviceAction->setData(QVariant::fromValue(cameraInfo));
         if (cameraInfo == QCameraInfo::defaultCamera())
             videoDeviceAction->setChecked(true);
-        qInfo() << "IN CONSTRUCTOR " << __LINE__;
 
         ui->menuDevices->addAction(videoDeviceAction);
-        qInfo() << "IN CONSTRUCTOR " << __LINE__;
     }
 
     connect(videoDevicesGroup, SIGNAL(triggered(QAction*)), SLOT(updateCameraDevice(QAction*)));
-    qInfo() << "IN CONSTRUCTOR " << __LINE__;
     connect(ui->captureWidget, SIGNAL(currentChanged(int)), SLOT(updateCaptureMode()));
 
     setCamera(QCameraInfo::defaultCamera());
-    qInfo() << "IN CONSTRUCTOR " << __LINE__;
 }
 
 Camera::~Camera()
@@ -129,7 +120,6 @@ void Camera::setCamera(const QCameraInfo &cameraInfo)
     connect(ui->exposureCompensation, SIGNAL(valueChanged(int)), SLOT(setExposureCompensation(int)));
 
     camera->setViewfinder(ui->viewfinder);
-    qInfo() << "IN SET CAM " << __LINE__;
 
     updateCameraState(camera->state());
     updateLockStatus(camera->lockStatus(), QCamera::UserRequest);
@@ -147,11 +137,8 @@ void Camera::setCamera(const QCameraInfo &cameraInfo)
     ui->captureWidget->setTabEnabled(0, (camera->isCaptureModeSupported(QCamera::CaptureStillImage)));
     ui->captureWidget->setTabEnabled(1, (camera->isCaptureModeSupported(QCamera::CaptureVideo)));
 
-    qInfo() << "IN SET CAM " << __LINE__;
     updateCaptureMode();
-    qInfo() << "IN SET CAM " << __LINE__;
     camera->start();
-    qInfo() << "IN SET CAM " << __LINE__;
 }
 
 void Camera::keyPressEvent(QKeyEvent * event)
