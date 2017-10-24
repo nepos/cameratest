@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>668</width>
-    <height>422</height>
+    <width>1280</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -247,13 +247,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>668</width>
-     <height>25</height>
+     <width>1280</width>
+     <height>32</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Fi&amp;le</string>
     </property>
     <addaction name="actionStartCamera"/>
     <addaction name="actionStopCamera"/>
@@ -264,7 +264,7 @@
    </widget>
    <widget class="QMenu" name="menuDevices">
     <property name="title">
-     <string>Devices</string>
+     <string>De&amp;vices</string>
     </property>
    </widget>
    <addaction name="menuFile"/>
@@ -273,22 +273,22 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Exit</string>
    </property>
   </action>
   <action name="actionStartCamera">
    <property name="text">
-    <string>Start Camera</string>
+    <string>&amp;Start Camera</string>
    </property>
   </action>
   <action name="actionStopCamera">
    <property name="text">
-    <string>Stop Camera</string>
+    <string>Stop &amp;Camera</string>
    </property>
   </action>
   <action name="actionSettings">
    <property name="text">
-    <string>Settings</string>
+    <string>Sett&amp;ings</string>
    </property>
   </action>
  </widget>
